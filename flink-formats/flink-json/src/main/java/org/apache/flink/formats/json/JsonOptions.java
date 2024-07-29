@@ -32,6 +32,22 @@ import java.util.Set;
  */
 public class JsonOptions {
 
+	// --------------------------------------------------------------------------------------------
+	// Option enumerations
+	// --------------------------------------------------------------------------------------------
+
+	public static final String SQL = "SQL";
+	public static final String ISO_8601 = "ISO-8601";
+
+	public static final Set<String> TIMESTAMP_FORMAT_ENUM = new HashSet<>(Arrays.asList(
+		SQL,
+		ISO_8601
+	));
+
+	// --------------------------------------------------------------------------------------------
+	// JSON Format Options
+	// --------------------------------------------------------------------------------------------
+
 	public static final ConfigOption<Boolean> FAIL_ON_MISSING_FIELD = ConfigOptions
 			.key("fail-on-missing-field")
 			.booleanType()
@@ -48,22 +64,10 @@ public class JsonOptions {
 	public static final ConfigOption<String> TIMESTAMP_FORMAT = ConfigOptions
 			.key("timestamp-format.standard")
 			.stringType()
-			.defaultValue("SQL")
+			.defaultValue(SQL)
 			.withDescription("Optional flag to specify timestamp format, SQL by default." +
 				" Option ISO-8601 will parse input timestamp in \"yyyy-MM-ddTHH:mm:ss.s{precision}\" format and output timestamp in the same format." +
 				" Option SQL will parse input timestamp in \"yyyy-MM-dd HH:mm:ss.s{precision}\" format and output timestamp in the same format.");
-
-	// --------------------------------------------------------------------------------------------
-	// Option enumerations
-	// --------------------------------------------------------------------------------------------
-
-	public static final String SQL = "SQL";
-	public static final String ISO_8601 = "ISO-8601";
-
-	public static final Set<String> TIMESTAMP_FORMAT_ENUM = new HashSet<>(Arrays.asList(
-		SQL,
-		ISO_8601
-	));
 
 	// --------------------------------------------------------------------------------------------
 	// Utilities

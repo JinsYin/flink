@@ -273,7 +273,7 @@ value1 NOT IN (value2 [, value3]* )
         When <i>(value2, value3, ...)</i>. contains NULL, returns FALSE if <i>value1</i> can be found and UNKNOWN otherwise. Always returns UNKNOWN if <i>value1</i> is NULL.</p>
         <p>E.g., <code>4 NOT IN (1, 2, 3)</code> returns TRUE;
         <code>1 NOT IN (1, 2, NULL)</code> returns FALSE;
-        <code>4 NOT IN (1, 2, NULL)</code> returns UNKNOWN.</p>
+        <code>4 NOT IN (1, 2, NULL)</code> returns TRUE.</p>
       </td>
     </tr>
 
@@ -2865,7 +2865,7 @@ SPLIT_INDEX(string1, string2, integer1)
     <tr>
       <td>
 {% highlight text %}
-STR_TO_MAP(string1[, string2, string3]])
+STR_TO_MAP(string1[, string2, string3])
 {% endhighlight %}
       </td>
       <td>
@@ -4882,7 +4882,6 @@ MAP.at(ANY)
       <td>
 {% highlight text %}
 ROW(value1, [, value2]*)
-(value1, [, value2]*)
 {% endhighlight %}
       </td>
       <td>

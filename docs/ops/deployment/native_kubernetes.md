@@ -24,7 +24,7 @@ specific language governing permissions and limitations
 under the License.
 -->
 
-This page describes how to deploy a Flink session cluster natively on [Kubernetes](https://kubernetes.io).
+This page describes how to deploy a Flink session and application cluster natively on [Kubernetes](https://kubernetes.io).
 
 * This will be replaced by the TOC
 {:toc}

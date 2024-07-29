@@ -4881,7 +4881,6 @@ MAP.at(ANY)
       <td>
 {% highlight text %}
 ROW(value1, [, value2]*)
-(value1, [, value2]*)
 {% endhighlight %}
       </td>
       <td>

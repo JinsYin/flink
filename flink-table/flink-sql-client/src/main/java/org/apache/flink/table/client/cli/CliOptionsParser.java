@@ -193,7 +193,7 @@ public class CliOptionsParser {
 	 * Prints the help for the client.
 	 */
 	public static void printHelpClient() {
-		System.out.println("./sql-client [MODE] [OPTIONS]");
+		System.out.println("./sql-client.sh [MODE] [OPTIONS]");
 		System.out.println();
 		System.out.println("The following options are available:");
 

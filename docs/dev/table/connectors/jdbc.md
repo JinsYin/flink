@@ -86,9 +86,9 @@ SELECT id, name, age, status FROM T;
 SELECT id, name, age, status FROM MyUserTable;
 
 -- temporal join the JDBC table as a dimension table
-SELECT * FROM myTopic
-LEFT JOIN MyUserTable FOR SYSTEM_TIME AS OF myTopic.proctime
-ON myTopic.key = MyUserTable.id;
+SELECT * FROM MyTopic
+LEFT JOIN MyUserTable FOR SYSTEM_TIME AS OF MyTopic.proctime
+ON MyTopic.key = MyUserTable.id;
 {% endhighlight %}
 </div>
 </div>
@@ -196,7 +196,7 @@ Connector Options
     <tr>
       <td><h5>lookup.cache.max-rows</h5></td>
       <td>optional</td>
-      <td style="word-wrap: break-word;">(none)</td>
+      <td style="word-wrap: break-word;">1L</td>
       <td>Integer</td>
       <td>The max number of rows of lookup cache, over this value, the oldest rows will be expired.
       Lookup cache is disabled by default. See the following <a href="#lookup-cache">Lookup Cache</a> section for more details.</td>
@@ -204,7 +204,7 @@ Connector Options
     <tr>
       <td><h5>lookup.cache.ttl</h5></td>
       <td>optional</td>
-      <td style="word-wrap: break-word;">(none)</td>
+      <td style="word-wrap: break-word;">10s</td>
       <td>Integer</td>
       <td>The max time to live for each rows in lookup cache, over this time, the oldest rows will be expired.
       Lookup cache is disabled by default. See the following <a href="#lookup-cache">Lookup Cache</a> section for more details. </td>
@@ -297,7 +297,7 @@ As there is no standard syntax for upsert, the following table describes the dat
             <td>INSERT .. ON DUPLICATE KEY UPDATE ..</td>
         </tr>
         <tr>
-            <td>PostgreSQL</td>
+            <td>PostgreSQL (version >= 9.5)</td>
             <td>INSERT .. ON CONFLICT .. DO UPDATE SET ..</td>
         </tr>
     </tbody>

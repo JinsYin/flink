@@ -42,7 +42,7 @@ import static org.apache.flink.table.types.utils.TypeConversions.fromLogicalToDa
 
 /**
  * Deserialization schema from Canal JSON to Flink Table/SQL internal data structure {@link RowData}.
- * The deserialization schema knows Debezium's schema definition and can extract the database data
+ * The deserialization schema knows Canal's schema definition and can extract the database data
  * and convert into {@link RowData} with {@link RowKind}.
  *
  * <p>Deserializes a <code>byte[]</code> message as a JSON object and reads
@@ -59,7 +59,7 @@ public final class CanalJsonDeserializationSchema implements DeserializationSche
 	private static final String OP_UPDATE = "UPDATE";
 	private static final String OP_DELETE = "DELETE";
 
-	/** The deserializer to deserialize Debezium JSON data. */
+	/** The deserializer to deserialize Canal JSON data. */
 	private final JsonRowDataDeserializationSchema jsonDeserializer;
 
 	/** TypeInformation of the produced {@link RowData}. **/

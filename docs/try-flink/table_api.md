@@ -98,6 +98,7 @@ tEnv.executeSql("CREATE TABLE spend_report (\n" +
     "   'password'   = 'demo-sql'\n" +
     ")");
 
+// or: tEnv.executeSql("INSERT INTO spend_report SELECT * FROM transactions");
 Table transactions = tEnv.from("transactions");
 report(transactions).executeInsert("spend_report");
 

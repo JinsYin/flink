@@ -746,7 +746,7 @@ final Schema schema = new Schema()
     .field("c", DataTypes.BIGINT());
 
 tableEnv.connect(new FileSystem().path("/path/to/file"))
-    .withFormat(new Csv().fieldDelimiter('|').deriveSchema())
+    .withFormat(new OldCsv().fieldDelimiter("|").deriveSchema())
     .withSchema(schema)
     .createTemporaryTable("CsvSinkTable");
 
@@ -1452,8 +1452,8 @@ The following code shows an example and the corresponding output for given `Tabl
 StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 StreamTableEnvironment tEnv = StreamTableEnvironment.create(env);
 
-DataStream<Tuple2<Integer, String>> stream1 = env.fromElements(new Tuple2<>(1, "hello"));
-DataStream<Tuple2<Integer, String>> stream2 = env.fromElements(new Tuple2<>(1, "hello"));
+SingleOutputStreamOperator<Tuple2<Integer, String>> stream1 = env.fromElements(new Tuple2<>(1, "hello"));
+SingleOutputStreamOperator<Tuple2<Integer, String>> stream2 = env.fromElements(new Tuple2<>(1, "hello"));
 
 // explain Table API
 Table table1 = tEnv.fromDataStream(stream1, $("count"), $("word"));

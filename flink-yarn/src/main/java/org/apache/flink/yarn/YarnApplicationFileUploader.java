@@ -301,7 +301,7 @@ class YarnApplicationFileUploader implements AutoCloseable {
 			return flinkDist;
 		} else if (!providedSharedLibs.isEmpty()) {
 			throw new ClusterDeploymentException("The \"" + YarnConfigOptions.PROVIDED_LIB_DIRS.key() + "\"" +
-					" has to also include the lib/, plugin/ and flink-dist jar." +
+					" has to also include the lib/, plugins/ and flink-dist jar." +
 					" In other case, it cannot be used.");
 		}
 

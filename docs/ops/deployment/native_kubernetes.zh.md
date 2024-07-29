@@ -24,7 +24,7 @@ specific language governing permissions and limitations
 under the License.
 -->
 
-本页面描述了如何在 [Kubernetes](https://kubernetes.io) 原生地部署 Flink session 集群。
+本页面描述了如何在 [Kubernetes](https://kubernetes.io) 原生地部署 Flink session 集群和 application 集群。
 
 * This will be replaced by the TOC
 {:toc}

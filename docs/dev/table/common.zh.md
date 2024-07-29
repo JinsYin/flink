@@ -762,7 +762,7 @@ final Schema schema = new Schema()
     .field("c", DataTypes.BIGINT());
 
 tableEnv.connect(new FileSystem().path("/path/to/file"))
-    .withFormat(new Csv().fieldDelimiter('|').deriveSchema())
+    .withFormat(new OldCsv().fieldDelimiter("|").deriveSchema())
     .withSchema(schema)
     .createTemporaryTable("CsvSinkTable");
 
@@ -1494,8 +1494,8 @@ Table API 提供了一种机制来解释计算 `Table` 的逻辑和优化查询�
 StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 StreamTableEnvironment tEnv = StreamTableEnvironment.create(env);
 
-DataStream<Tuple2<Integer, String>> stream1 = env.fromElements(new Tuple2<>(1, "hello"));
-DataStream<Tuple2<Integer, String>> stream2 = env.fromElements(new Tuple2<>(1, "hello"));
+SingleOutputStreamOperator<Tuple2<Integer, String>> stream1 = env.fromElements(new Tuple2<>(1, "hello"));
+SingleOutputStreamOperator<Tuple2<Integer, String>> stream2 = env.fromElements(new Tuple2<>(1, "hello"));
 
 // explain Table API
 Table table1 = tEnv.fromDataStream(stream1, $("count"), $("word"));

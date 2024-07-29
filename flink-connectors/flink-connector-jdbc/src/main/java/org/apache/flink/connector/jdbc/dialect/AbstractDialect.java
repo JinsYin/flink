@@ -63,7 +63,7 @@ abstract class AbstractDialect implements JdbcDialect {
 				}
 			}
 
-			// only validate precision of DECIMAL type for blink planner
+			// only validate precision of TIMESTAMP type for blink planner
 			if (dt.getLogicalType() instanceof TimestampType) {
 				int precision = ((TimestampType) dt.getLogicalType()).getPrecision();
 				if (precision > maxTimestampPrecision()
